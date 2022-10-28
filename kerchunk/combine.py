@@ -431,10 +431,10 @@ class MultiZarrToZarr:
                             ind = np.searchsorted(self.coos[c], cv)
                             if c in coords:
                                 key += str(
-                                    ind // ch[loc] + int(key_parts[coords.index(c)])
+                                    ind // zarray["chunks"][loc] + int(key_parts[coords.index(c)])
                                 )
                             else:
-                                key += str(ind // ch[loc])
+                                key += str(ind // zarray["chunks"][loc])
                         else:
                             key += key_parts[coords.index(c)]
                         key += "."
